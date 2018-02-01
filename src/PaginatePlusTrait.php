@@ -31,10 +31,15 @@ trait PaginatePlusTrait
             ->mergeBindings($queryCount->getQuery())
             ->count();
 
-        $itemsForCurrentPage = array_slice($query->get()->toArray(), $offSet, $paginate, true);
         $offSet = ($currentPage * $perPage) - $perPage;
+        $items = $query
+            ->offset($offSet)
+            ->limit($perPage)
+            ->get()
+            ->toArray();
+
         $result = new LengthAwarePaginator(
-            $itemsForCurrentPage,
+            $items,
             $total,
             $perPage,
             $currentPage
