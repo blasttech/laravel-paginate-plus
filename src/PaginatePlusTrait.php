@@ -24,19 +24,11 @@ trait PaginatePlusTrait
         $perPage = $perPage ?: $query->getModel()->getPerPage();
         $currentPage = Input::get('page', 1);
 
-        $queryCount = (clone $query);
-        $total = $queryCount
-            ->getConnection()
-            ->table(DB::raw("({$queryCount->toSql()}) as sub"))
-            ->mergeBindings($queryCount->getQuery())
-            ->count();
+        // Total number of records in query
+        $total = $this->getTotal($query);
 
-        $offSet = ($currentPage * $perPage) - $perPage;
-        $items = $query
-            ->offset($offSet)
-            ->limit($perPage)
-            ->get()
-            ->toArray();
+        // Items for current page
+        $items = $this->getItems($query, $currentPage, $perPage);
 
         $result = new LengthAwarePaginator(
             $items,
@@ -46,5 +38,41 @@ trait PaginatePlusTrait
         );
 
         return $result;
+    }
+
+    /**
+     * Get the total number of records in the query
+     *
+     * @param Builder $query
+     * @return int
+     */
+    protected function getTotal(Builder $query)
+    {
+        $clone = (clone $query);
+
+        return $clone
+            ->getConnection()
+            ->table(DB::raw("({$clone->toSql()}) as sub"))
+            ->mergeBindings($clone->getQuery())
+            ->count();
+    }
+
+    /**
+     * Get the items for the current page
+     *
+     * @param Builder $query
+     * @param int $currentPage
+     * @param int $perPage
+     * @return array
+     */
+    protected function getItems(Builder $query, $currentPage, $perPage)
+    {
+        $offSet = ($currentPage * $perPage) - $perPage;
+
+        return $query
+            ->offset($offSet)
+            ->limit($perPage)
+            ->get()
+            ->toArray();
     }
 }
