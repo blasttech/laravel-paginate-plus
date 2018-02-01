@@ -8,15 +8,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 /**
- * Trait PaginatePlusTrait
- *
- * @package Blasttech\PaginatePlus
+ * Trait PaginatePlusTrait.
  */
 trait PaginatePlusTrait
 {
     /**
-     * @param Builder $query
+     * @param Builder  $query
      * @param int|null $perPage
+     *
      * @return LengthAwarePaginator
      */
     public function scopePaginatePlus(Builder $query, $perPage = null)
@@ -41,9 +40,10 @@ trait PaginatePlusTrait
     }
 
     /**
-     * Get the total number of records in the query
+     * Get the total number of records in the query.
      *
      * @param Builder $query
+     *
      * @return int
      */
     protected function getTotal(Builder $query)
@@ -58,11 +58,12 @@ trait PaginatePlusTrait
     }
 
     /**
-     * Get the items for the current page
+     * Get the items for the current page.
      *
      * @param Builder $query
-     * @param int $currentPage
-     * @param int $perPage
+     * @param int     $currentPage
+     * @param int     $perPage
+     *
      * @return array
      */
     protected function getItems(Builder $query, $currentPage, $perPage)
