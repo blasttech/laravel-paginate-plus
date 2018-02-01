@@ -21,8 +21,8 @@ trait PaginatePlusTrait
      */
     public function scopePaginatePlus(Builder $query, $per_page = null)
     {
-        $paginate = $per_page ?? $query->getModel()->getPerPage();
-        $page = Input::get('page', 1);
+        $perPage = $per_page ?? $query->getModel()->getPerPage();
+        $currentPage = Input::get('page', 1);
 
         $queryCount = (clone $query);
         $total = $queryCount
@@ -31,14 +31,15 @@ trait PaginatePlusTrait
             ->mergeBindings($queryCount->getQuery())
             ->count();
 
-        $offSet = ($page * $paginate) - $paginate;
         $itemsForCurrentPage = array_slice($query->get()->toArray(), $offSet, $paginate, true);
+        $offSet = ($currentPage * $perPage) - $perPage;
         $result = new LengthAwarePaginator(
             $itemsForCurrentPage,
             $total,
-            $paginate,
-            $page
+            $perPage,
+            $currentPage
         );
+
         return $result;
     }
 }
