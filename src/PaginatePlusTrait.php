@@ -16,12 +16,12 @@ trait PaginatePlusTrait
 {
     /**
      * @param Builder $query
-     * @param int|null $per_page
+     * @param int|null $perPage
      * @return LengthAwarePaginator
      */
-    public function scopePaginatePlus(Builder $query, $per_page = null)
+    public function scopePaginatePlus(Builder $query, $perPage = null)
     {
-        $perPage = $per_page ?? $query->getModel()->getPerPage();
+        $perPage = $perPage ?: $query->getModel()->getPerPage();
         $currentPage = Input::get('page', 1);
 
         $queryCount = (clone $query);
