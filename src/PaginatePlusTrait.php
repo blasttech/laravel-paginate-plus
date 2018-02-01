@@ -25,7 +25,8 @@ trait PaginatePlusTrait
         $page = Input::get('page', 1);
 
         $queryCount = (clone $query);
-        $total = DB::connection($queryCount->connection)
+        $total = $queryCount
+            ->getConnection()
             ->table(DB::raw("({$queryCount->toSql()}) as sub"))
             ->mergeBindings($queryCount->getQuery())
             ->count();
