@@ -1,0 +1,38 @@
+{
+  "name": "blasttech/laravel-paginate-plus",
+  "description": "Extra paginate functions for Laravel",
+  "homepage": "https://github.com/blasttech/laravel-paginate-plus",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michael Blair",
+      "email": "mhkblair@gmail.com"
+    }
+  ],
+  "keywords":
+  [
+    "paginate",
+    "eloquent",
+    "model",
+    "laravel"
+  ],
+  "require": {
+    "php": ">=7.0",
+    "illuminate/database": "~5.3.0|~5.4.0|~5.5.0",
+    "illuminate/pagination": "~5.3.0|~5.4.0|~5.5.0",
+    "illuminate/support": "~5.3.0|~5.4.0|~5.5.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit" : "^5.7|^6.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Blasttech\\PaginatePlus\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Blasttech\\PaginatePlus\\Test\\": "tests"
+    }
+  }
+}
