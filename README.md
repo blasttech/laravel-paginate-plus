@@ -1,7 +1,6 @@
 # Extra functionality for Laravel pagination
 
 [![Latest Version](https://img.shields.io/github/release/blasttech/laravel-paginate-plus.svg?style=flat-square)](https://github.com/blasttech/laravel-paginate-plus/releases)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/fb7765b9-7632-4897-8054-22d85b41ffda.svg)](https://insight.sensiolabs.com/projects/fb7765b9-7632-4897-8054-22d85b41ffda)
 [![Build Status](https://img.shields.io/travis/blasttech/laravel-paginate-plus.svg?style=flat-square)](https://travis-ci.org/blasttech/laravel-paginate-plus)
 [![Quality Score](https://img.shields.io/scrutinizer/g/blasttech/laravel-paginate-plus.svg?style=flat-square)](https://scrutinizer-ci.com/g/blasttech/laravel-paginate-plus)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
