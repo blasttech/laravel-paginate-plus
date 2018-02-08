@@ -2,10 +2,10 @@
 
 namespace Blasttech\PaginatePlus;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Trait PaginatePlusTrait.
@@ -13,7 +13,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 trait PaginatePlusTrait
 {
     /**
-     * @param Builder  $query
+     * @param Builder $query
      * @param int|null $perPage
      *
      * @return LengthAwarePaginator
@@ -61,8 +61,8 @@ trait PaginatePlusTrait
      * Get the items for the current page.
      *
      * @param Builder $query
-     * @param int     $currentPage
-     * @param int     $perPage
+     * @param int $currentPage
+     * @param int $perPage
      *
      * @return array
      */
