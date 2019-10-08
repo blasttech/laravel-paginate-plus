@@ -5,10 +5,12 @@ namespace Blasttech\PaginatePlus;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 /**
  * Trait PaginatePlusTrait.
+ *
+ * @method paginatePlus(int $perPage = null)
  */
 trait PaginatePlusTrait
 {
@@ -21,7 +23,7 @@ trait PaginatePlusTrait
     public function scopePaginatePlus(Builder $query, $perPage = null)
     {
         $perPage = $perPage ?: $query->getModel()->getPerPage();
-        $currentPage = Input::get('page', 1);
+        $currentPage = Request::input('page', 1);
 
         // Total number of records in query
         $total = $this->getTotal($query);
