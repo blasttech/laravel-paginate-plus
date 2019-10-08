@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Request;
 /**
  * Trait PaginatePlusTrait.
  *
- * @method paginatePlus(int $perPage = null)
+ * @method LengthAwarePaginator paginatePlus(int $perPage = null)
  */
 trait PaginatePlusTrait
 {
     /**
-     * @param Builder $query
+     * @param static|$this|Builder $query
      * @param int|null $perPage
      *
      * @return LengthAwarePaginator
