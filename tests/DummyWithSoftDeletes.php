@@ -2,14 +2,15 @@
 
 namespace Blasttech\PaginatePlus\Test;
 
-use Illuminate\Database\Eloquent\Model;
 use Blasttech\PaginatePlus\PaginatePlus;
 use Blasttech\PaginatePlus\PaginatePlusTrait;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DummyWithSoftDeletes extends Model implements PaginatePlus
 {
-    use SoftDeletes, PaginatePlusTrait;
+    use SoftDeletes;
+    use PaginatePlusTrait;
 
     protected $table = 'dummies';
     protected $guarded = [];
