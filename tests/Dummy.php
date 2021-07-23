@@ -2,9 +2,9 @@
 
 namespace Blasttech\PaginatePlus\Test;
 
-use Illuminate\Database\Eloquent\Model;
 use Blasttech\PaginatePlus\PaginatePlus;
 use Blasttech\PaginatePlus\PaginatePlusTrait;
+use Illuminate\Database\Eloquent\Model;
 
 class Dummy extends Model implements PaginatePlus
 {
